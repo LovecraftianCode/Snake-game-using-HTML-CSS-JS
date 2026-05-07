@@ -35,7 +35,7 @@ canvas {
     color: white;
 }
 
-#score {
+p {
     text-align: center;
     font-family: Arial, sans-serif;
     margin-top: 10px;
@@ -55,7 +55,5 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    display: none;
-}
     display: none; /* Ocultar inicialmente */
 }
