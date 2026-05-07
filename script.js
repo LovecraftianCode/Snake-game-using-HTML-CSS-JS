@@ -175,12 +175,17 @@ function drawFood() {
 function checkEat() {
     const head = snake[0];
     if (head.x === foodX && head.y === foodY) {
-        // Comió la comida
         const newSegment = {x: snake[snake.length-1].x, y: snake[snake.length-1].y};
-        snake.push(newSegment);  // Crece la serpiente
-        createFood();            // Nueva comida
+        snake.push(newSegment);
+        createFood();
         score += 10;
-        document.getElementById('score').innerHTML = score + " puntos"; // Actualiza el score en el DOM
+        
+        const scoreElement = document.getElementById('score');
+        if (scoreElement) {
+            scoreElement.innerHTML = score + " puntos";
+            scoreElement.style.display = 'block'; // Asegurar que es visible
+            console.log("Score actualizado:", score); // Para debug
+        }
     }
 }
 
