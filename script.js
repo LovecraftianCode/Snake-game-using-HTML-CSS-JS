@@ -61,6 +61,52 @@ function advanceSnake() {
     snake.pop();//Elimina el último segmento de la serpiente para simular el movimiento
 }
 
+// ========== CONTROLES POR DESLIZAMIENTO (SWIPE) ==========
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
+function handleTouchStart(e) {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.touches[0];
+    touchStartX = touch.clientX - rect.left;
+    touchStartY = touch.clientY - rect.top;
+}
+
+function handleTouchEnd(e) {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const touch = e.changedTouches[0];
+    touchEndX = touch.clientX - rect.left;
+    touchEndY = touch.clientY - rect.top;
+    
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    
+    // Determinar si fue horizontal o vertical (mayor distancia)
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 20) {
+        // Deslizamiento horizontal
+        if (deltaX > 0 && direction !== 'left') {
+            direction = 'right';
+        } else if (deltaX < 0 && direction !== 'right') {
+            direction = 'left';
+        }
+    } else if (Math.abs(deltaY) > 20) {
+        // Deslizamiento vertical
+        if (deltaY > 0 && direction !== 'up') {
+            direction = 'down';
+        } else if (deltaY < 0 && direction !== 'down') {
+            direction = 'up';
+        }
+    }
+}
+
+// Agregar event listeners para swipe
+canvas.addEventListener('touchstart', handleTouchStart, false);
+canvas.addEventListener('touchend', handleTouchEnd, false);
+
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);//Limpia el canvas antes de redibujar la serpiente
 }
