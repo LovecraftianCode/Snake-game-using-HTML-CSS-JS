@@ -256,3 +256,40 @@ snake-game/
 | Colisiones AABB | Detección por coordenadas en cuadrícula |
 | Diseño responsive | `@media (max-width: 768px)` |
 | Arrays y objetos | Almacenamiento de segmentos de la serpiente |
+
+## Cómo ejecutar localmente
+
+Requisitos
+
+- Navegador web moderno (Chrome, Firefox, Edge, Safari)
+- Opcional: VS Code con Live Server
+
+```Bash
+# 1. Clonar el repositorio
+git clone https://github.com/lovecraftiancode/Snake-game-using-HTML-CSS-JS.git
+cd Snake-game-using-HTML-CSS-JS
+
+# 2. Opción A: Abrir directamente
+# Haz doble clic en index.html
+
+# 3. Opción B: Con Live Server (recomendado)
+npx live-server
+
+# 4. ¡A jugar!
+```
+
+## Próximas mejoras
+
+- Niveles de dificultad - Velocidad progresiva según la puntuación
+- High score local - Guardar la mejor puntuación en localStorage
+- Obstáculos - Paredes internas en niveles avanzados
+- Skins para la serpiente - Diferentes colores o diseños
+- Efectos de sonido - Al comer comida o game over
+- Sistema de passwords - Desbloquear niveles o skins
+- Pausa del juego - Botón para pausar/reanudar
+
+## Autor
+
+LovecraftianCode - @LovecraftianCode
+Proyecto realizado como práctica de JavaScript, Canvas y desarrollo de juegos
+Inspirado en el clásico juego de Nokia (1997)
