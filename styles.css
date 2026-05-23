@@ -26,6 +26,41 @@ h1 {
     z-index: 10;
 }
 
+/* ========== CONTENEDOR PRINCIPAL: imagen izquierda + juego centrado ========== */
+.game-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 500px;
+}
+
+/* Anaconda del lado izquierdo (absoluta para no afectar el centrado del juego) */
+.anaconda-side {
+    position: absolute;
+    left: 300px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.anaconda-img {
+    max-width: 250px;
+    max-height: 350px;
+    width: auto;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* El juego se mantiene centrado como siempre */
+.game-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 canvas {
     background-color: rgb(0, 0, 0);
     display: block;
@@ -38,6 +73,27 @@ canvas {
 
 /* Ajustes para móvil */
 @media (max-width: 768px) {
+    /* En móvil la imagen se va arriba y el juego sigue centrado */
+    .game-wrapper {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .anaconda-side {
+        position: relative;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .anaconda-img {
+        max-width: 180px;
+        max-height: 180px;
+    }
+    
     #score {
         font-size: 24px;
         padding: 8px 16px;
@@ -56,7 +112,7 @@ canvas {
     button#restartBtn {
         position: relative;
         margin: 20px auto;
-        display: none; /* Se mostrará solo cuando termine el juego */
+        display: none;
         top: auto;
         left: auto;
         transform: none;
@@ -78,13 +134,11 @@ canvas {
     font-family: Arial, sans-serif;
     font-size: 28px;
     font-weight: bold;
-    color: #e7e5e5;  /* Color rojizo para que destaque */
+    color: #e7e5e5;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
     margin: 10px auto;
     width: fit-content;
-    /* border-radius: 10px; */
-    /* border: 1px solid #e7e5e5; */
     position: relative;
     z-index: 10;
 }
@@ -101,5 +155,11 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    display: none; /* Ocultar inicialmente */
+    display: none;
+}
+
+button:hover {
+    background-color: #ffffff;
+    transform: translate(-50%, -50%) scale(1.05);
+    transition: transform 0.2s;
 }

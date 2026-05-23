@@ -9,14 +9,24 @@
 <body>
     <main>
         <h1>🐍 Snake Game</h1>
-        <div id="score">0</div>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <p id="instruccion">
-            PC: Usa las flechas del teclado<br>
-            Móvil: Desliza el dedo sobre el juego
-        </p>
         
-        <button id="restartBtn">Restart Game</button>
+        <!-- Wrapper que contiene la imagen (izquierda) y el juego (centrado) -->
+        <div class="game-wrapper">
+            <!-- Anaconda del lado izquierdo -->
+            <div class="anaconda-side">
+                <img src="images/gVTEK.png" alt="Anaconda" class="anaconda-img">
+            </div>
+            
+            <div class="game-center">
+                <div id="score">0 Puntos</div>
+                <canvas id="gameCanvas" width="400" height="400"></canvas>
+                <p id="instruccion">
+                    PC: Usa las flechas del teclado<br>
+                    Móvil: Desliza el dedo sobre el juego
+                </p>
+                <button id="restartBtn">Restart Game</button>
+            </div>
+        </div>
     </main>
     <script src="script.js"></script>
 </body>

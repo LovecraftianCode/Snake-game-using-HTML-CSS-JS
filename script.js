@@ -1,9 +1,16 @@
 /*
-Ideas para implementar en el juego 
-- Implementar niveles de dificultad que aumenten la velocidad de la serpiente a medida que el jugador avanza.
-- Agregar un sistema de passwords que permitan saltar a niveles superiores o desbloquear skins para la serpiente.
-- Agregar obstáculos en el tablero que la serpiente deba evitar en nivles altos de dificultad.
-- Agregar sonido para cuando la serpiente come la comida o cuando el juego termina.
+CARACTERÍSTICAS PENDIENTES POR IMPLEMENTAR
+- Niveles de dificultad - Velocidad progresiva según la puntuación
+- High score local - Guardar la mejor puntuación en localStorage
+- Obstáculos - Paredes internas en niveles avanzados
+- Skins para la serpiente - Diferentes colores o diseños
+- Efectos de sonido - Al comer comida o game over
+- Sistema de passwords - Desbloquear niveles o skins
+- Pausa del juego - Botón para pausar/reanudar
+- Modo multijugador local - Dos jugadores en el mismo teclado
+- Modo multijugador online - Competir contra otros jugadores en tiempo real
+- Acelerar dejando apretado una tecla o el touch - Para aumentar la velocidad temporalmente
+- Power-ups - Ítems especiales que otorgan habilidades como ralentizar el tiempo, atravesar paredes
 */
 
 
@@ -111,8 +118,10 @@ function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);//Limpia el canvas antes de redibujar la serpiente
 }
 
-// Control de la dirección de la serpiente (VERSIÓN CORREGIDA)
+// Control de la dirección de la serpiente
 function changeDirection(event) {
+    event.preventDefault();
+    
     const LEFT_KEY = 37;
     const RIGHT_KEY = 39;
     const UP_KEY = 38;
